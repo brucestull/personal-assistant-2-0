@@ -1,0 +1,31 @@
+commit 23f0ee76b2cef66b0d4f64901ceef41fe2473b54
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Fri May 16 08:39:57 2025 -0400
+
+    Add 'Makefile' for running coverage and testing
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..6c77bf4
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,19 @@
++.PHONY: clean test coverage covhtml
++
++# Clean pyc and __pycache__
++clean:
++	find . -type d -name "__pycache__" -exec rm -r {} +
++	find . -type f -name "*.pyc" -delete
++	echo "Cleaned __pycache__ and .pyc files."
++
++# Run pytest only
++test:
++	pytest --ds=config.settings
++
++# Run pytest with coverage
++coverage:
++	pytest --ds=config.settings --cov=plan_it --cov-report=term-missing --cov-report=html
++
++# Open the HTML coverage report (Linux/Mac)
++covhtml:
++	xdg-open htmlcov/index.html || open htmlcov/index.html || echo "Please open htmlcov/index.html manually."

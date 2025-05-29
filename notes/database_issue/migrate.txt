@@ -1,0 +1,78 @@
+rm -f db.sqlite3
+echo "Database cleared and initail data loaded."
+Database cleared and initail data loaded.
+make makemigrate
+make[1]: Entering directory '/home/flynntknapp/Programming/personal-assistant'
+python manage.py makemigrations
+No changes detected
+python manage.py migrate
+Operations to perform:
+  Apply all migrations: accounts, activity_tracker, admin, app_tracker, auth, boosts, care_craft, career_organizerator, cbt, contenttypes, django_celery_beat, do_it, goals, journal, opportunity_search, pharma_tracker, pi_tracker, plan_it, self_enquiry, sessions, sonic_text, storage, uc_goals, unimportant_notes, value_centric, vitals
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0001_initial... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying accounts.0001_initial... OK
+  Applying activity_tracker.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying app_tracker.0001_initial... OK
+  Applying boosts.0001_initial... OK
+  Applying care_craft.0001_initial... OK
+  Applying career_organizerator.0001_initial... OK
+  Applying cbt.0001_initial... OK
+  Applying django_celery_beat.0001_initial... OK
+  Applying django_celery_beat.0002_auto_20161118_0346... OK
+  Applying django_celery_beat.0003_auto_20161209_0049... OK
+  Applying django_celery_beat.0004_auto_20170221_0000... OK
+  Applying django_celery_beat.0005_add_solarschedule_events_choices... OK
+  Applying django_celery_beat.0006_auto_20180322_0932... OK
+  Applying django_celery_beat.0007_auto_20180521_0826... OK
+  Applying django_celery_beat.0008_auto_20180914_1922... OK
+  Applying django_celery_beat.0006_auto_20180210_1226... OK
+  Applying django_celery_beat.0006_periodictask_priority... OK
+  Applying django_celery_beat.0009_periodictask_headers... OK
+  Applying django_celery_beat.0010_auto_20190429_0326... OK
+  Applying django_celery_beat.0011_auto_20190508_0153... OK
+  Applying django_celery_beat.0012_periodictask_expire_seconds... OK
+  Applying django_celery_beat.0013_auto_20200609_0727... OK
+  Applying django_celery_beat.0014_remove_clockedschedule_enabled... OK
+  Applying django_celery_beat.0015_edit_solarschedule_events_choices... OK
+  Applying django_celery_beat.0016_alter_crontabschedule_timezone... OK
+  Applying django_celery_beat.0017_alter_crontabschedule_month_of_year... OK
+  Applying django_celery_beat.0018_improve_crontab_helptext... OK
+  Applying django_celery_beat.0019_alter_periodictasks_options... OK
+  Applying do_it.0001_initial... OK
+  Applying goals.0001_initial... OK
+  Applying journal.0001_initial... OK
+  Applying opportunity_search.0001_initial... OK
+  Applying pharma_tracker.0001_initial... OK
+  Applying pi_tracker.0001_initial... OK
+  Applying plan_it.0001_initial... OK
+  Applying self_enquiry.0001_initial... OK
+  Applying sessions.0001_initial... OK
+  Applying sonic_text.0001_initial... OK
+  Applying storage.0001_initial... OK
+  Applying uc_goals.0001_initial... OK
+  Applying unimportant_notes.0001_initial... OK
+  Applying value_centric.0001_initial... OK
+  Applying vitals.0001_initial... OK
+make[1]: Leaving directory '/home/flynntknapp/Programming/personal-assistant'
+make loaddata
+make[1]: Entering directory '/home/flynntknapp/Programming/personal-assistant'
+python manage.py loaddata initial_data.json
+make[1]: Leaving directory '/home/flynntknapp/Programming/personal-assistant'
+
+

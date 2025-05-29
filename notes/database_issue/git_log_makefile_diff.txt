@@ -1,0 +1,371 @@
+commit 15e63fb50e00dc01dae6bb887586639a5750cbe1
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Thu May 29 07:14:38 2025 -0400
+
+    Fixed Makefile
+
+diff --git a/Makefile b/Makefile
+index 23b3725..3f4886c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -56,7 +56,7 @@ load_storage_sort:
+ # Reset the database and reload initial data
+ resetdb-safe:
+ 	rm -f db.sqlite3
+-	echo "Database cleared."
++	echo "Database cleared and initail data loaded."
+ 	make makemigrate
+ 	make loaddata
+ 
+
+commit e2da887107f499d453377b3848b661bbdf058738
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Thu May 29 07:10:32 2025 -0400
+
+    Updated 'Makefile'. The database issue is likely caused by old 'Makefile' deleting migrations.
+
+diff --git a/Makefile b/Makefile
+index 6f9f2f5..23b3725 100644
+--- a/Makefile
++++ b/Makefile
+@@ -36,9 +36,40 @@ migrate:
+ # Run makemigrations and migrate
+ makemigrate: makemigrations migrate
+ 
+-# Run the development server
+-runserver:
+-	python manage.py runserver
++# # Reset the database and reload initial data
++# resetdb:
++# 	rm -f db.sqlite3
++# 	find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
++# 	find . -path "*/migrations/*.pyc" -delete
++# 	echo "Database and migrations cleared."
++# 	make makemigrate
++# 	make loaddata
++
++# Load fixtures (adjust fixture name if needed)
++loaddata:
++	python manage.py loaddata initial_data.json
++
++# Load Storage Sort model data
++load_storage_sort:
++	python manage.py loaddata storage/fixtures/sort_decisions.json && echo "Storage SortDecision data loaded."
++
++# Reset the database and reload initial data
++resetdb-safe:
++	rm -f db.sqlite3
++	echo "Database cleared."
++	make makemigrate
++	make loaddata
++
++# Delete the database
++deletedb:
++	rm -f db.sqlite3
++	echo "Database cleared."
++
++# Load demo fixture data
++seed:
++	python manage.py makemigrations
++	python manage.py migrate
++	python manage.py loaddata plan_it/fixtures/demo_data.json && echo "Database seeded with demo data."
+ 
+ # Create superuser from .env values
+ createsu:
+@@ -56,28 +87,9 @@ createsu:
+ shell:
+ 	python manage.py shell
+ 
+-# # Load fixtures (adjust fixture name if needed)
+-# loaddata:
+-# 	python manage.py loaddata initial_data.json
+-
+-# Load Storage Sort model data
+-load_storage_sort:
+-	python manage.py loaddata storage/fixtures/sort_decisions.json && echo "Storage SortDecision data loaded."
+-
+-# Reset the database and reload initial data
+-resetdb:
+-	rm -f db.sqlite3
+-	find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+-	find . -path "*/migrations/*.pyc" -delete
+-	echo "Database and migrations cleared."
+-	make makemigrate
+-	make loaddata
+-
+-# Load demo fixture data
+-seed:
+-	python manage.py makemigrations
+-	python manage.py migrate
+-	python manage.py loaddata plan_it/fixtures/demo_data.json && echo "Database seeded with demo data."
++# Run the development server
++runserver:
++	python manage.py runserver
+ 
+ # Show this help
+ help:
+
+commit 710da91cd4567c55b3086de7e04e6e98a18c7eeb
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 21:29:26 2025 -0400
+
+    Add Storage Item
+
+diff --git a/Makefile b/Makefile
+index 16ff7f0..6f9f2f5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -56,9 +56,9 @@ createsu:
+ shell:
+ 	python manage.py shell
+ 
+-# Load fixtures (adjust fixture name if needed)
+-loaddata:
+-	python manage.py loaddata initial_data.json
++# # Load fixtures (adjust fixture name if needed)
++# loaddata:
++# 	python manage.py loaddata initial_data.json
+ 
+ # Load Storage Sort model data
+ load_storage_sort:
+
+commit 343a625ce2f845d9f944d3e08d04d04cc1ba87a9
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 15:52:49 2025 -0400
+
+    Update 'Storage' app with 'SortDecision' model
+
+diff --git a/Makefile b/Makefile
+index 579f997..16ff7f0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -10,9 +10,13 @@ clean:
+ 	echo "Cleaned __pycache__, .pytest_cache, and htmlcov directories and .pyc, .coverage files."
+ 
+ # Run pytest only
+-test:
++pytest:
+ 	pytest --ds=config.settings
+ 
++# Run unit tests
++test:
++	python manage.py test
++
+ # Run pytest with coverage
+ coverage:
+ 	pytest --ds=config.settings --cov=plan_it --cov-report=term-missing --cov-report=html
+@@ -56,6 +60,10 @@ shell:
+ loaddata:
+ 	python manage.py loaddata initial_data.json
+ 
++# Load Storage Sort model data
++load_storage_sort:
++	python manage.py loaddata storage/fixtures/sort_decisions.json && echo "Storage SortDecision data loaded."
++
+ # Reset the database and reload initial data
+ resetdb:
+ 	rm -f db.sqlite3
+
+commit 545dd95e3779f7371e4d529dbf08661dfc6d222d
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 13:36:32 2025 -0400
+
+    Added 'registration_accepted' flag 'True' to create superuser script
+
+diff --git a/Makefile b/Makefile
+index 37efd0e..579f997 100644
+--- a/Makefile
++++ b/Makefile
+@@ -45,7 +45,7 @@ createsu:
+ 	username = os.environ.get('DJANGO_SU_NAME'); \
+ 	email = os.environ.get('DJANGO_SU_EMAIL'); \
+ 	password = os.environ.get('DJANGO_SU_PASSWORD'); \
+-	User.objects.filter(username=username).exists() or User.objects.create_superuser(username, email, password)" && \
++	User.objects.filter(username=username).exists() or User.objects.create_superuser(username=username, email=email, password=password, registration_accepted=True)" && \
+ 	echo 'Superuser created or already exists.'
+ 
+ # Start the Django shell
+
+commit 789640abc6b55df595aa7a26f6b8b98ecb2b0dc5
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 11:55:24 2025 -0400
+
+    Add 'help' target to 'Makefile'.
+
+diff --git a/Makefile b/Makefile
+index 2371c58..37efd0e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,6 @@
+ .PHONY: clean test coverage covhtml migrate makemigrations makemigrate runserver createsu shell loaddata resetdb
+ 
+-# Clean pyc and __pycache__
++# Clean python, pytest, and coverage files
+ clean:
+ 	find . -type d -name "__pycache__" -exec rm -r {} +
+ 	find . -type d -name ".pytest_cache" -exec rm -r {} +
+@@ -39,14 +39,14 @@ runserver:
+ # Create superuser from .env values
+ createsu:
+ 	@python manage.py shell -c "import dotenv, os; \
+-dotenv.load_dotenv(); \
+-from django.contrib.auth import get_user_model; \
+-User = get_user_model(); \
+-username = os.environ.get('DJANGO_SU_NAME'); \
+-email = os.environ.get('DJANGO_SU_EMAIL'); \
+-password = os.environ.get('DJANGO_SU_PASSWORD'); \
+-User.objects.filter(username=username).exists() or User.objects.create_superuser(username, email, password)" && \
+-echo 'Superuser created or already exists.'
++	dotenv.load_dotenv(); \
++	from django.contrib.auth import get_user_model; \
++	User = get_user_model(); \
++	username = os.environ.get('DJANGO_SU_NAME'); \
++	email = os.environ.get('DJANGO_SU_EMAIL'); \
++	password = os.environ.get('DJANGO_SU_PASSWORD'); \
++	User.objects.filter(username=username).exists() or User.objects.create_superuser(username, email, password)" && \
++	echo 'Superuser created or already exists.'
+ 
+ # Start the Django shell
+ shell:
+@@ -70,3 +70,14 @@ seed:
+ 	python manage.py makemigrations
+ 	python manage.py migrate
+ 	python manage.py loaddata plan_it/fixtures/demo_data.json && echo "Database seeded with demo data."
++
++# Show this help
++help:
++	@echo "Available targets:"
++	@awk '/^[a-zA-Z0-9_%-]+:/ { \
++		if (match(prev, /^# (.+)/, desc)) { \
++			printf "  \033[1m%-15s\033[0m %s\n", $$1, desc[1]; \
++		} else { \
++			printf "  \033[1m%-15s\033[0m\n", $$1; \
++		} \
++	} { prev = $$0 }' $(MAKEFILE_LIST)
+
+commit 240505719476d934b9092f93c2e5b44273b9e731
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 11:53:01 2025 -0400
+
+    Update 'Makefile' to remove necessary directories and files
+
+diff --git a/Makefile b/Makefile
+index dd7f7c8..2371c58 100644
+--- a/Makefile
++++ b/Makefile
+@@ -3,8 +3,11 @@
+ # Clean pyc and __pycache__
+ clean:
+ 	find . -type d -name "__pycache__" -exec rm -r {} +
++	find . -type d -name ".pytest_cache" -exec rm -r {} +
++	find . -type d -name "htmlcov" -exec rm -r {} +
+ 	find . -type f -name "*.pyc" -delete
+-	echo "Cleaned __pycache__ and .pyc files."
++	find . -type f -name "*.coverage" -delete
++	echo "Cleaned __pycache__, .pytest_cache, and htmlcov directories and .pyc, .coverage files."
+ 
+ # Run pytest only
+ test:
+
+commit cef462835f27a7b3b19596bc18124884eb65f67e
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Sun May 18 21:47:46 2025 -0400
+
+    ActivityInstance and Complete button in progress
+
+diff --git a/Makefile b/Makefile
+index 6c77bf4..dd7f7c8 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,4 +1,4 @@
+-.PHONY: clean test coverage covhtml
++.PHONY: clean test coverage covhtml migrate makemigrations makemigrate runserver createsu shell loaddata resetdb
+ 
+ # Clean pyc and __pycache__
+ clean:
+@@ -17,3 +17,53 @@ coverage:
+ # Open the HTML coverage report (Linux/Mac)
+ covhtml:
+ 	xdg-open htmlcov/index.html || open htmlcov/index.html || echo "Please open htmlcov/index.html manually."
++
++# Run makemigrations
++makemigrations:
++	python manage.py makemigrations
++
++# Run migrate
++migrate:
++	python manage.py migrate
++
++# Run makemigrations and migrate
++makemigrate: makemigrations migrate
++
++# Run the development server
++runserver:
++	python manage.py runserver
++
++# Create superuser from .env values
++createsu:
++	@python manage.py shell -c "import dotenv, os; \
++dotenv.load_dotenv(); \
++from django.contrib.auth import get_user_model; \
++User = get_user_model(); \
++username = os.environ.get('DJANGO_SU_NAME'); \
++email = os.environ.get('DJANGO_SU_EMAIL'); \
++password = os.environ.get('DJANGO_SU_PASSWORD'); \
++User.objects.filter(username=username).exists() or User.objects.create_superuser(username, email, password)" && \
++echo 'Superuser created or already exists.'
++
++# Start the Django shell
++shell:
++	python manage.py shell
++
++# Load fixtures (adjust fixture name if needed)
++loaddata:
++	python manage.py loaddata initial_data.json
++
++# Reset the database and reload initial data
++resetdb:
++	rm -f db.sqlite3
++	find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
++	find . -path "*/migrations/*.pyc" -delete
++	echo "Database and migrations cleared."
++	make makemigrate
++	make loaddata
++
++# Load demo fixture data
++seed:
++	python manage.py makemigrations
++	python manage.py migrate
++	python manage.py loaddata plan_it/fixtures/demo_data.json && echo "Database seeded with demo data."
+
+commit 23f0ee76b2cef66b0d4f64901ceef41fe2473b54
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Fri May 16 08:39:57 2025 -0400
+
+    Add 'Makefile' for running coverage and testing
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..6c77bf4
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,19 @@
++.PHONY: clean test coverage covhtml
++
++# Clean pyc and __pycache__
++clean:
++	find . -type d -name "__pycache__" -exec rm -r {} +
++	find . -type f -name "*.pyc" -delete
++	echo "Cleaned __pycache__ and .pyc files."
++
++# Run pytest only
++test:
++	pytest --ds=config.settings
++
++# Run pytest with coverage
++coverage:
++	pytest --ds=config.settings --cov=plan_it --cov-report=term-missing --cov-report=html
++
++# Open the HTML coverage report (Linux/Mac)
++covhtml:
++	xdg-open htmlcov/index.html || open htmlcov/index.html || echo "Please open htmlcov/index.html manually."

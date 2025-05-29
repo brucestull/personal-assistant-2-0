@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ page_title }}
+    -
+    {{ the_site_name }}
+{% endblock title %}
+
+{% block content %}
+<h1>
+    {{ page_title }}
+</h1>
+{% include "uc_goals/uc_links.html" %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Goal</button>
+</form>
+    {% if mode == "update" %}
+    <a href="{% url 'uc_goals:goal_detail' pk=object.pk %}">Cancel Goal Update</a>
+    {% elif mode == "create" %}
+    <a href="{% url 'uc_goals:uc_list' %}">Cancel</a>
+    {% endif %}
+{% endblock content %}

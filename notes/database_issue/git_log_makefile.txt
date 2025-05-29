@@ -1,0 +1,53 @@
+commit 15e63fb50e00dc01dae6bb887586639a5750cbe1
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Thu May 29 07:14:38 2025 -0400
+
+    Fixed Makefile
+
+commit e2da887107f499d453377b3848b661bbdf058738
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Thu May 29 07:10:32 2025 -0400
+
+    Updated 'Makefile'. The database issue is likely caused by old 'Makefile' deleting migrations.
+
+commit 710da91cd4567c55b3086de7e04e6e98a18c7eeb
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 21:29:26 2025 -0400
+
+    Add Storage Item
+
+commit 343a625ce2f845d9f944d3e08d04d04cc1ba87a9
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 15:52:49 2025 -0400
+
+    Update 'Storage' app with 'SortDecision' model
+
+commit 545dd95e3779f7371e4d529dbf08661dfc6d222d
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 13:36:32 2025 -0400
+
+    Added 'registration_accepted' flag 'True' to create superuser script
+
+commit 789640abc6b55df595aa7a26f6b8b98ecb2b0dc5
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 11:55:24 2025 -0400
+
+    Add 'help' target to 'Makefile'.
+
+commit 240505719476d934b9092f93c2e5b44273b9e731
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Wed May 28 11:53:01 2025 -0400
+
+    Update 'Makefile' to remove necessary directories and files
+
+commit cef462835f27a7b3b19596bc18124884eb65f67e
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Sun May 18 21:47:46 2025 -0400
+
+    ActivityInstance and Complete button in progress
+
+commit 23f0ee76b2cef66b0d4f64901ceef41fe2473b54
+Author: Flynnt Knapp <bruce.stull@gmail.com>
+Date:   Fri May 16 08:39:57 2025 -0400
+
+    Add 'Makefile' for running coverage and testing

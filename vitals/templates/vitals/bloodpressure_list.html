@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ the_site_name }} - {{ page_title }}{% endblock title %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    <a href="{% url 'vitals:bloodpressure-create' %}">Add Blood Pressure</a>
+
+    {% if user.registration_accepted == False %}
+        <p>
+            Your registration has not been accepted yet.  Please check back later.
+        </p>
+    {% endif %}
+
+    {% if user.registration_accepted %}
+        <hr>
+        <h2>{{ user.username }}'s Blood Pressures</h2>
+        <h3>Medians</h3>
+        {{ user_averages_and_medians.systolic_median }} / {{ user_averages_and_medians.diastolic_median }}
+        <h3>Averages</h3>
+        {{ user_averages_and_medians.systolic_average }} / {{ user_averages_and_medians.diastolic_average }}
+        <hr>
+        <h3>Minimums</h3>
+        {{ user_pressure_range.systolic_min }} / {{ user_pressure_range.diastolic_min }}
+        <h3>Maximums</h3>
+        {{ user_pressure_range.systolic_max }} / {{ user_pressure_range.diastolic_max }}
+        <hr>
+        {% for blood_pressure in bloodpressure_list %}
+        <p>
+            {{ blood_pressure.systolic }} / {{ blood_pressure.diastolic }}
+            &nbsp;&nbsp; - &nbsp;&nbsp;
+            {{ blood_pressure.pulse }} bpm
+            &nbsp;&nbsp; | &nbsp;&nbsp;
+            {{ blood_pressure.created }}
+        </p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+
+{% endblock content %}

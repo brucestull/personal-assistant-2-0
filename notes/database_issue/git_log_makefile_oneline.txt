@@ -1,0 +1,9 @@
+15e63fb Fixed Makefile
+e2da887 Updated 'Makefile'. The database issue is likely caused by old 'Makefile' deleting migrations.
+710da91 Add Storage Item
+343a625 Update 'Storage' app with 'SortDecision' model
+545dd95 Added 'registration_accepted' flag 'True' to create superuser script
+789640a Add 'help' target to 'Makefile'.
+2405057 Update 'Makefile' to remove necessary directories and files
+cef4628 ActivityInstance and Complete button in progress
+23f0ee7 Add 'Makefile' for running coverage and testing

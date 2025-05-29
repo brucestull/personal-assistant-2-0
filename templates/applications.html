@@ -1,0 +1,44 @@
+{% block content %}
+<h3>Applications</h3>
+<ul>
+    <li><a href="{% url 'home' %}">Personal Assistant</a></li>
+    <li><a href={% url 'activity_tracker:activity-list' %}>Activity Tracker</a></li>
+    <li><a href={% url 'unimportant_notes:note_list' %}>Unimportant Notes</a></li>
+    <li>
+        <a href={% url "app_tracker:home" %}>App Tracker</a>
+        |
+        <a href="{% url 'app_tracker:organizational-concepts' %}">
+            Organizational Concepts
+        </a>
+    </li>
+    <li>
+        <a href={% url "career_organizerator:home" %}>Career Organizerator</a>
+        |
+        <a href={% url 'career_organizerator:skill-list' %}>Skills</a>
+        |
+        <a href={% url 'career_organizerator:behavioral-interview-question-list' %}>Behavioral Interview Questions</a>
+        |
+        <a href={% url 'career_organizerator:question-response-list' %}>Question Responses</a>
+        |
+        <a href={% url 'career_organizerator:bulletpoint-list' %}>Bullet Points</a>
+    </li>
+        {% comment %} <li><a href={% url "vitals:home" %}>Vitals</a></li> {% endcomment %}
+    <li><a href={% url "vitals:bloodpressure-list" %}>Blood Pressures</a></li>
+    <li><a href={% url "self_enquiry:list" %}>Self Enquiry</a></li>
+    <li>
+        CBT
+        |
+        <a href={% url "cbt:cognitive-distortion-list" %}>Cognitive Distortions</a>
+        |
+        <a href={% url "cbt:thought-list" %}>Thoughts</a>
+        |
+        <a href={% url "cbt:thought-create" %}>Create New Thought</a>
+    </li>
+    <li>
+        <a href={% url "value_centric:personal-value-list" %}>Personal Values</a>
+        |
+        <a href={% url "value_centric:personal-value-create" %}>Create New Personal Value</a>
+    </li>
+</ul>
+
+{% endblock content %}

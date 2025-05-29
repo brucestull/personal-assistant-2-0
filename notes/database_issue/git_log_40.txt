@@ -1,0 +1,57 @@
+* 15e63fb Fixed Makefile
+* ff2fd96 Fixed issue with missing 'EMAIL_HOST' name in .env.example.
+* e2da887 Updated 'Makefile'. The database issue is likely caused by old 'Makefile' deleting migrations.
+* 8804388 Revert debug changes
+* e5f3335 Temporarily enable debug mode on Heroku
+* 5fa34f6 Add debug prints to ItemListView
+*   5e83070 Merge pull request #678 from brucestull/669-add-item-model-to-storage-app
+|\  
+| * 710da91 Add Storage Item
+|/  
+*   86a3d60 Merge pull request #676 from brucestull/670-add-storage-app_name-to-urls-and-modify-references-to-that
+|\  
+| * b4a4023 Add 'Storage' app home link to project 'base.html'.
+| * 2d9336d Update 'Storage' app urls to have namespacing for app 'storage'.
+|/  
+*   07ef602 Merge pull request #673 from brucestull/671-add-sort-model-for-sorting-decisions
+|\  
+| * 343a625 Update 'Storage' app with 'SortDecision' model
+|/  
+*   24f66e0 Merge pull request #672 from brucestull/668-add-storage-app
+|\  
+| * 545dd95 Added 'registration_accepted' flag 'True' to create superuser script
+| * 1dad516 Add models, views, urls, templates, and migrations for 'Storage app.
+| * 789640a Add 'help' target to 'Makefile'.
+| * 2405057 Update 'Makefile' to remove necessary directories and files
+| * 4a3045b Add skeleton app 'storage'.
+|/  
+| * 83961e8 Updated 'dump_grocery_data.py' for some reason
+| * 76f2f0b Add documention for commands and links
+| * a40bf66 Fix Flake E402 error by ignoring it. The import needs to happen after config if loaded
+| * 5a096fe Updated script
+| * 4cfac2e Add some grodery stuff
+| * c6b1bf0 Updated Grocery App
+| * bfd5fc9 Add grocery app
+| * c20e533 Add Groceries link to base.html template
+| * 82e69b8 Update stuff:
+|/  
+*   ee687c7 Merge pull request #662 from brucestull/660-add-pomodoro-app
+|\  
+| * 66d797c Added louder alarm and warning sounds
+| * 6fec6ea Add Pomodoro Timer app
+|/  
+*   8568c36 Merge pull request #657 from brucestull/656-add-doit-app-with-basic-crud-views
+|\  
+| * 08ccb1d Add Do It! models, views, urls, viewsets.
+| * 622b8d5 Do It! vanilla Django views working.
+|/  
+*   a8534d5 Merge pull request #654 from brucestull/653-add-activityinstance-model
+|\  
+| * 32e4d64 Add link for Pytest documentation
+| * 3d0517d Add fields to 'list_filter'. Add 'Meta' class for verbose names.
+| * cef4628 ActivityInstance and Complete button in progress
+|/  
+*   8b3e7cd Merge pull request #652 from brucestull/651-fix-plan-it-app-page-title-elements
+|\  
+| * 81e3637 Updated page title elements to include page title
+|/  
