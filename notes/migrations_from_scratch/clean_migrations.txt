@@ -1,0 +1,59 @@
+Deleting all Django migrations except __init__.py...
+Cleaning migrations in: ./vitals/migrations
+Cleaning migrations in: ./sonic_text/migrations
+Cleaning migrations in: ./uc_goals/migrations
+Cleaning migrations in: ./storage/migrations
+Cleaning migrations in: ./care_craft/migrations
+Cleaning migrations in: ./activity_tracker/migrations
+Cleaning migrations in: ./pharma_tracker/migrations
+Cleaning migrations in: ./pomodo/migrations
+Cleaning migrations in: ./value_centric/migrations
+Cleaning migrations in: ./accounts/migrations
+Cleaning migrations in: ./journal/migrations
+Cleaning migrations in: ./goals/migrations
+Cleaning migrations in: ./pi_tracker/migrations
+Cleaning migrations in: ./career_organizerator/migrations
+Cleaning migrations in: ./project_manager/migrations
+Cleaning migrations in: ./boosts/migrations
+Cleaning migrations in: ./plan_it/migrations
+Cleaning migrations in: ./do_it/migrations
+Cleaning migrations in: ./cbt/migrations
+Cleaning migrations in: ./unimportant_notes/migrations
+Cleaning migrations in: ./opportunity_search/migrations
+Cleaning migrations in: ./self_enquiry/migrations
+Cleaning migrations in: ./app_tracker/migrations
+Done.
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    accounts/migrations/0001_initial.py
+	deleted:    activity_tracker/migrations/0001_initial.py
+	deleted:    app_tracker/migrations/0001_initial.py
+	deleted:    boosts/migrations/0001_initial.py
+	deleted:    care_craft/migrations/0001_initial.py
+	deleted:    career_organizerator/migrations/0001_initial.py
+	deleted:    cbt/migrations/0001_initial.py
+	deleted:    do_it/migrations/0001_initial.py
+	deleted:    goals/migrations/0001_initial.py
+	deleted:    journal/migrations/0001_initial.py
+	deleted:    opportunity_search/migrations/0001_initial.py
+	deleted:    pharma_tracker/migrations/0001_initial.py
+	deleted:    pi_tracker/migrations/0001_initial.py
+	deleted:    plan_it/migrations/0001_initial.py
+	deleted:    self_enquiry/migrations/0001_initial.py
+	deleted:    sonic_text/migrations/0001_initial.py
+	deleted:    storage/migrations/0001_initial.py
+	deleted:    uc_goals/migrations/0001_initial.py
+	deleted:    unimportant_notes/migrations/0001_initial.py
+	deleted:    value_centric/migrations/0001_initial.py
+	deleted:    vitals/migrations/0001_initial.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	notes/migrations_from_scratch/
+
+no changes added to commit (use "git add" and/or "git commit -a")
