@@ -1,4 +1,5 @@
-.PHONY: clean test coverage covhtml migrate makemigrations makemigrate runserver createsu shell loaddata resetdb
+cleanmigrations:
+.PHONY: clean cleanmigrations pytest test coverage covhtml makemigrations migrate makemigrate loaddata load_storage_sort resetdb-safe deletedb seed createsu shell runserver help
 
 # Clean python, pytest, and coverage files
 clean:
@@ -8,6 +9,15 @@ clean:
 	find . -type f -name "*.pyc" -delete
 	find . -type f -name "*.coverage" -delete
 	echo "Cleaned __pycache__, .pytest_cache, and htmlcov directories and .pyc, .coverage files."
+
+# Clean migrations by deleting all migration files except __init__.py
+cleanmigrations:
+	@echo "Deleting all Django migrations except __init__.py..."
+	@find . -type d -name "migrations" | while read -r dir; do \
+		echo "Cleaning migrations in: $$dir"; \
+		find "$$dir" -type f ! -name "__init__.py" -delete; \
+	done
+	@echo "Done."
 
 # Run pytest only
 pytest:
