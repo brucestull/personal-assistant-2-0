@@ -68,7 +68,7 @@ resetdb-safe:
 	rm -f db.sqlite3
 	echo "Database cleared and initail data loaded."
 	make makemigrate
-	make loaddata
+	make load_storage_sort
 
 # Delete the database
 deletedb:
