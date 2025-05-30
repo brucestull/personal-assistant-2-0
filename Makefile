@@ -1,6 +1,12 @@
 cleanmigrations:
 .PHONY: clean cleanmigrations pytest test coverage covhtml makemigrations migrate makemigrate loaddata load_storage_sort resetdb-safe deletedb seed createsu shell runserver help
 
+# Run git prune
+prune:
+	@echo "Running git prune..."
+	git remote update origin --prune
+	@echo "Prune complete."
+
 # Clean python, pytest, and coverage files
 clean:
 	find . -type d -name "__pycache__" -exec rm -r {} +
