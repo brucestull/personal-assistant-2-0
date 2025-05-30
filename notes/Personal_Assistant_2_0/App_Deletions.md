@@ -61,7 +61,7 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [ ] app_tracker
 - [ ] boosts
 - [X] care_craft
-- [ ] career_organizerator
+- [X] career_organizerator
 - [ ] cbt
 - [ ] do_it
 - [ ] goals
