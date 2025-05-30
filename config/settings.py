@@ -62,7 +62,6 @@ INSTALLED_APPS = [
     "app_tracker.apps.AppTrackerConfig",
     "cbt.apps.CbtConfig",
     "goals.apps.GoalsConfig",
-    "opportunity_search.apps.OpportunitySearchConfig",
     "pharma_tracker.apps.PharmaTrackerConfig",
     "pi_tracker.apps.PiTrackerConfig",
     "project_manager.apps.ProjectManagerConfig",
