@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     "activity_tracker.apps.ActivityTrackerConfig",
     "app_tracker.apps.AppTrackerConfig",
     "cbt.apps.CbtConfig",
-    "career_organizerator.apps.CareerOrganizeratorConfig",
     "goals.apps.GoalsConfig",
     "opportunity_search.apps.OpportunitySearchConfig",
     "pharma_tracker.apps.PharmaTrackerConfig",
