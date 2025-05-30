@@ -80,5 +80,5 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [ ] templates
 - [ ] uc_goals
 - [ ] unimportant_notes
-- [ ] value_centric
+- [X] value_centric
 - [ ] vitals
