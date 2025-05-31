@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     "activity_tracker.apps.ActivityTrackerConfig",
     "app_tracker.apps.AppTrackerConfig",
     "cbt.apps.CbtConfig",
-    "goals.apps.GoalsConfig",
     "pi_tracker.apps.PiTrackerConfig",
     "project_manager.apps.ProjectManagerConfig",
     "self_enquiry.apps.SelfEnquiryConfig",
