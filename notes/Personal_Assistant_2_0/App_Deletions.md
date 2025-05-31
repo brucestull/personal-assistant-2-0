@@ -60,28 +60,28 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 
 ## App Deletion Status
 
-- [ ] accounts
-- [ ] activity_tracker
-- [ ] app_tracker
-- [ ] boosts
+### Apps to Keep
+- `accounts`
+- `activity_tracker`
+- `app_tracker`
+- `boosts`
+- `cbt`
+- `pi_tracker`
+- `plan_it`
+- `pomodo`
+- `self_enquiry`
+- `sonic_text`
+- `uc_goals`
+- `unimportant_notes`
+- `vitals`
+
 - [X] care_craft
 - [X] career_organizerator
-- [ ] cbt
-- [ ] do_it
+- [X] do_it
 - [ ] goals
 - [ ] journal
 - [X] opportunity_search
 - [X] pharma_tracker
-- [ ] pi_tracker
-- [ ] plan_it
-- [ ] pomodo
 - [ ] project_manager
-- [ ] self_enquiry
-- [ ] sonic_text
-- [ ] static
 - [ ] storage
-- [ ] templates
-- [ ] uc_goals
-- [ ] unimportant_notes
 - [X] value_centric
-- [ ] vitals

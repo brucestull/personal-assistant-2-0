@@ -73,7 +73,6 @@ INSTALLED_APPS = [
     "django_celery_beat",
     "boosts.apps.BoostsConfig",
     "plan_it.apps.PlanItConfig",
-    "do_it.apps.DoItConfig",
     "pomodo.apps.PomodoConfig",
     "storage.apps.StorageConfig",
 ]
