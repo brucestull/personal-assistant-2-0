@@ -9,7 +9,7 @@ from django.views.generic import (
 )
 
 from base.mixins import RegistrationAcceptedMixin
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 from .forms import AudioFileForm
 from .models import AudioFile

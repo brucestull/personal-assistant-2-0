@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 
 from base.mixins import RegistrationAcceptedMixin
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 from vitals.models import BloodPressure
 
 

@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 
-from config.settings import AUTH_USER_MODEL
+from django.conf import settings
 
 
 class ActivityType(models.Model):
@@ -12,7 +12,7 @@ class ActivityType(models.Model):
 
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="activity_types",
     )
@@ -34,7 +34,7 @@ class Activity(models.Model):
 
     name = models.CharField(max_length=255)
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="activities",
     )
@@ -69,7 +69,7 @@ class ActivityCompleted(models.Model):
         related_name="completed_activity",
     )
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="activities_completed",
     )

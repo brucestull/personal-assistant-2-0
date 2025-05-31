@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 from base.models import CreatedUpdatedBase
-from config.settings import AUTH_USER_MODEL
+from django.conf import settings
 
 
 class Journal(CreatedUpdatedBase):
@@ -17,7 +17,7 @@ class Journal(CreatedUpdatedBase):
     """
 
     author = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="journals",
     )
@@ -71,7 +71,7 @@ class GrowthOpportunity(CreatedUpdatedBase):
     """
 
     author = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="growth_opportunities",
     )

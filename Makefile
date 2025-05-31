@@ -43,6 +43,7 @@ covhtml:
 
 # Run makemigrations
 makemigrations:
+	python manage.py makemigrations accounts
 	python manage.py makemigrations
 
 # Run migrate

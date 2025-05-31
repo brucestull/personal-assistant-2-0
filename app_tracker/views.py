@@ -5,7 +5,7 @@ from django.views.generic import ListView
 
 from app_tracker.models import OrganizationalConcept
 from base.mixins import RegistrationAcceptedMixin
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 
 def home(request):

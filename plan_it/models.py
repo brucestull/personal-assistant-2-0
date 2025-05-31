@@ -2,17 +2,18 @@
 
 from datetime import date
 
-from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
 
-User = get_user_model()
+from django.conf import settings
 
 
 class StorageLocation(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="storage_locations"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="storage_locations",
     )
     name = models.CharField(max_length=100)
     parent_location = models.ForeignKey(
@@ -36,7 +37,9 @@ class StorageLocation(models.Model):
 
 class ActivityLocation(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="activity_locations"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="activity_locations",
     )
     name = models.CharField(max_length=100)
     parent_location = models.ForeignKey(
@@ -68,7 +71,9 @@ class ActivityLocation(models.Model):
 
 
 class Item(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="items")
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="items"
+    )
     name = models.CharField(max_length=100)
     storage_location = models.ForeignKey(StorageLocation, on_delete=models.CASCADE)
     description = models.TextField(blank=True, null=True)
@@ -82,7 +87,9 @@ class Item(models.Model):
 
 class ActivityType(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="plan_it_activity_types"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="plan_it_activity_types",
     )
     name = models.CharField(max_length=50)
 
@@ -95,7 +102,9 @@ class ActivityType(models.Model):
 
 class Activity(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="plan_it_activities"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="plan_it_activities",
     )
     name = models.CharField(max_length=100)
     type = models.ForeignKey(ActivityType, on_delete=models.CASCADE)
@@ -151,7 +160,9 @@ class Activity(models.Model):
 
 class ActivityInstance(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="activity_instances"
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="activity_instances",
     )
     activity = models.ForeignKey(
         Activity,

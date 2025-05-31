@@ -11,7 +11,7 @@ from django.views.generic import DetailView, ListView
 
 from base.mixins import RegistrationAcceptedMixin
 from base.decorators import registration_accepted_required
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 from .models import Activity, ActivityCompleted  # ActivityType,
 

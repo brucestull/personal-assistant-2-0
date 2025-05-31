@@ -1,0 +1,18 @@
+SETTINGS=config.settings.dev
+
+export DJANGO_SETTINGS_MODULE := $(SETTINGS)
+
+runserver:
+	python manage.py runserver
+
+shell:
+	python manage.py shell
+
+migrate:
+	python manage.py migrate
+
+createsu:
+	python manage.py createsu
+
+celery:
+	celery -A config worker -l info

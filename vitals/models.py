@@ -1,7 +1,7 @@
+from django.conf import settings
 from django.db import models
 
 from base.models import CreatedUpdatedBase
-from config.settings import AUTH_USER_MODEL
 
 
 class BloodPressure(CreatedUpdatedBase):
@@ -10,7 +10,7 @@ class BloodPressure(CreatedUpdatedBase):
     """
 
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="blood_pressures",
         help_text="The user that measures their blood pressure.",
@@ -44,7 +44,7 @@ class Pulse(CreatedUpdatedBase):
     """
 
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="pulses",
         help_text="The user that measures their pulse.",
@@ -68,7 +68,7 @@ class Temperature(CreatedUpdatedBase):
     """
 
     subject = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         verbose_name="Subject",
         on_delete=models.CASCADE,
         related_name="temperatures",
@@ -95,7 +95,7 @@ class BodyWeight(CreatedUpdatedBase):
     """
 
     subject = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         verbose_name="Subject",
         on_delete=models.CASCADE,
         related_name="body_weights",

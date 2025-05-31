@@ -14,7 +14,7 @@ from base.decorators import registration_accepted_required
 from boosts.forms import InspirationalForm
 from boosts.models import Inspirational, InspirationalSent
 from boosts.tasks import send_inspirational_to_beastie
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 
 class InspirationalListView(RegistrationAcceptedMixin, ListView):

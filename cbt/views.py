@@ -5,7 +5,7 @@ from django.views.generic import DetailView, ListView
 from django.views.generic.edit import CreateView, FormMixin
 
 from base.mixins import RegistrationAcceptedMixin
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 from .forms import ThoughtForm
 from .models import CognitiveDistortion, Thought

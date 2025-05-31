@@ -2,7 +2,7 @@
 
 from django.db import models
 
-from config.settings import AUTH_USER_MODEL
+from django.conf import settings
 
 
 class Inspirational(models.Model):
@@ -11,7 +11,7 @@ class Inspirational(models.Model):
         verbose_name="Inspirational Body Text",
     )
     author = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="inspirationals",
     )
@@ -41,12 +41,12 @@ class InspirationalSent(models.Model):
         verbose_name="Inspirational Text Sent to Beastie",
     )
     sender = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="inspirationals_sent",
     )
     beastie = models.ForeignKey(
-        AUTH_USER_MODEL,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
     sent_at = models.DateTimeField(
