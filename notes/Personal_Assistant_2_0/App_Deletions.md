@@ -79,7 +79,7 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [X] career_organizerator
 - [X] do_it
 - [X] goals
-- [ ] journal
+- [X] journal
 - [X] opportunity_search
 - [X] pharma_tracker
 - [ ] project_manager
