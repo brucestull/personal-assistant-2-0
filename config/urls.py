@@ -49,7 +49,6 @@ urlpatterns = [
     path("sonic-text/", include("sonic_text.urls")),
     path("boosts/", include("boosts.urls")),
     path("plan-it/", include("plan_it.urls")),
-    path("do-it/", include("do_it.urls")),
     path("pomodo/", include("pomodo.urls")),
     path("storages/", include("storage.urls")),
 ]
