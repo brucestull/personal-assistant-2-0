@@ -1,0 +1,52 @@
+# Makefile for Django project with environment-specific settings
+# Usage: make runserver SETTINGS=dev
+
+.PHONY: runserver shell migrate makemigrations createsu test coverage covhtml clean help
+
+SETTINGS ?= config.settings.dev
+
+export DJANGO_SETTINGS_MODULE := $(SETTINGS)
+
+help:
+	@echo "Available targets:"
+	@echo "  make runserver SETTINGS=dev     # Run dev server"
+	@echo "  make shell SETTINGS=dev         # Open Django shell"
+	@echo "  make migrate SETTINGS=dev       # Apply migrations"
+	@echo "  make makemigrations SETTINGS=dev# Create migrations"
+	@echo "  make createsu SETTINGS=dev      # Create superuser"
+	@echo "  make test SETTINGS=dev          # Run tests"
+	@echo "  make coverage SETTINGS=dev      # Run tests with coverage"
+	@echo "  make covhtml                    # Open HTML coverage report"
+	@echo "  make clean                      # Clean __pycache__ and coverage artifacts"
+
+runserver:
+	python manage.py runserver
+
+shell:
+	python manage.py shell
+
+migrate:
+	python manage.py migrate
+
+makemigrations:
+	python manage.py makemigrations
+
+createsu:
+	python manage.py createsuperuser
+
+test:
+	pytest
+
+coverage:
+	pytest --ds=$(SETTINGS) --cov=. --cov-report=term-missing --cov-report=html
+
+covhtml:
+	xdg-open htmlcov/index.html || open htmlcov/index.html || echo "Please open htmlcov/index.html manually."
+
+clean:
+	find . -type d -name "__pycache__" -exec rm -r {} +
+	find . -type d -name ".pytest_cache" -exec rm -r {} +
+	find . -type d -name "htmlcov" -exec rm -r {} +
+	find . -type f -name "*.pyc" -delete
+	find . -type f -name "*.coverage" -delete
+	echo "Cleaned Python artifacts."
