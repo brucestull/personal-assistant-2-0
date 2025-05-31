@@ -82,6 +82,6 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [X] journal
 - [X] opportunity_search
 - [X] pharma_tracker
-- [ ] project_manager
+- [X] project_manager
 - [ ] storage
 - [X] value_centric
