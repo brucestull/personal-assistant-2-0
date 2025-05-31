@@ -75,6 +75,8 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - `unimportant_notes`
 - `vitals`
 
+### Apps to Delete
+
 - [X] care_craft
 - [X] career_organizerator
 - [X] do_it

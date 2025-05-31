@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 from base.models import Note
-from django.contrib.auth import get_user_model
+from django.conf import settings
 
 
 class NoteTag(models.Model):
@@ -16,7 +16,7 @@ class NoteTag(models.Model):
         help_text="The name of this tag.",
     )
     author = models.ForeignKey(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         verbose_name="Author",
         help_text="The author of this tag.",
         on_delete=models.CASCADE,

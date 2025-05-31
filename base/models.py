@@ -1,7 +1,7 @@
 # base/models.py
 
-from django.contrib.auth import get_user_model
 from django.db import models
+from django.conf import settings
 
 
 class CreatedUpdatedBase(models.Model):
@@ -36,7 +36,7 @@ class Note(CreatedUpdatedBase):
         help_text="The title of this note.",
     )
     author = models.ForeignKey(
-        get_user_model(),
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="notes",
     )

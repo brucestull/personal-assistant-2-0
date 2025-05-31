@@ -10,7 +10,7 @@ from django.views import generic
 
 from base.decorators import registration_accepted_required
 from base.mixins import RegistrationAcceptedMixin
-from config.settings import THE_SITE_NAME
+from config.settings.base import THE_SITE_NAME
 
 from .models import (
     Activity,

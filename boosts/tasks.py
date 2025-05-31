@@ -4,15 +4,13 @@ import os
 
 from celery import shared_task
 from celery.utils.log import get_task_logger
-from django.conf import settings
 from django.core.mail import send_mail
 
 from .models import Inspirational
 
-if settings.ENVIRONMENT == "development":
-    from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-    load_dotenv()
+load_dotenv()
 
 TEST_EMAIL_ADDRESS = os.getenv("TEST_EMAIL_ADDRESS")
 
