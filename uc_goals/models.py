@@ -1,12 +1,12 @@
 from django.db import models
 from django.urls import reverse
 
-from config.settings import AUTH_USER_MODEL
+from django.contrib.auth import get_user_model
 
 
 class Goal(models.Model):
     user = models.ForeignKey(
-        AUTH_USER_MODEL,
+        get_user_model(),
         on_delete=models.CASCADE,
         related_name="uc_goals",
         help_text="The user that set the goal.",

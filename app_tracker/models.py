@@ -1,7 +1,7 @@
 from django.db import models
 
 from base.models import CreatedUpdatedBase
-from config.settings import AUTH_USER_MODEL
+from django.contrib.auth import get_user_model
 
 
 class OrganizationalConcept(CreatedUpdatedBase):
@@ -100,7 +100,7 @@ class Project(CreatedUpdatedBase):
     )
     # `owner` is a many-to-many relationship with the `CustomUser` model.
     owner = models.ManyToManyField(
-        AUTH_USER_MODEL,
+        get_user_model(),
         verbose_name="Owner(s)",
         help_text="The owner(s) of the project.",
         # The related name for the `owner` field is `projects`.
