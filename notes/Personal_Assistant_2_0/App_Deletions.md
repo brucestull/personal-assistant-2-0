@@ -1,5 +1,9 @@
 # Personal Assistant 2.0 - App Deletions
 
+- [personal-assistant-2-0 - GitHub Repository](https://github.com/brucestull/personal-assistant-2-0)
+- [personal-assistant-2-0 - Issues](https://github.com/brucestull/personal-assistant-2-0/issues)
+- [personal-assistant-2-0 - Milestone](https://github.com/brucestull/personal-assistant-2-0/milestone/1)
+
 ## Original Directory Structure
 
 ```bash
@@ -72,7 +76,6 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [ ] plan_it
 - [ ] pomodo
 - [ ] project_manager
-- [ ] scripts
 - [ ] self_enquiry
 - [ ] sonic_text
 - [ ] static
