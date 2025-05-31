@@ -71,7 +71,7 @@ drwxr-xr-x  6 flynntknapp flynntknapp   4096 May 29 09:12 vitals
 - [ ] goals
 - [ ] journal
 - [X] opportunity_search
-- [ ] pharma_tracker
+- [X] pharma_tracker
 - [ ] pi_tracker
 - [ ] plan_it
 - [ ] pomodo
