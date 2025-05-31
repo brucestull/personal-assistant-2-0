@@ -71,7 +71,6 @@ INSTALLED_APPS = [
     "boosts.apps.BoostsConfig",
     "plan_it.apps.PlanItConfig",
     "pomodo.apps.PomodoConfig",
-    "storage.apps.StorageConfig",
 ]
 
 MIDDLEWARE = [
