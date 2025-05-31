@@ -41,7 +41,6 @@ urlpatterns = [
     path("cbt/", include("cbt.urls")),
     path("unimportant-notes/", include("unimportant_notes.urls")),
     path("activity-tracker/", include("activity_tracker.urls")),
-    path("project-manager/", include("project_manager.urls")),
     path("pi-tracker/", include("pi_tracker.urls")),
     path("uc-goals/", include("uc_goals.urls")),
     path("sonic-text/", include("sonic_text.urls")),
