@@ -47,5 +47,4 @@ urlpatterns = [
     path("boosts/", include("boosts.urls")),
     path("plan-it/", include("plan_it.urls")),
     path("pomodo/", include("pomodo.urls")),
-    path("storages/", include("storage.urls")),
 ]
